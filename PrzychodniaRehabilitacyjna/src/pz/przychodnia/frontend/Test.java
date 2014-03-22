@@ -13,12 +13,17 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Spinner;
+import org.eclipse.swt.widgets.Canvas;
+import org.eclipse.swt.custom.StyledText;
+import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.widgets.Label;
 
 public class Test {
 
 	protected Shell shell;
-	private Table table;
-	private Text text;
 
 	/**
 	 * Launch the application.
@@ -39,8 +44,6 @@ public class Test {
 	public void open() {
 		Display display = Display.getDefault();
 		createContents();
-		shell.open();
-		shell.layout();
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
@@ -53,41 +56,20 @@ public class Test {
 	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(450, 300);
-		shell.setText("SWT Application");
 		
-		ViewForm viewForm = new ViewForm(shell, SWT.NONE);
-		viewForm.setBounds(230, 158, -107, -62);
+		Canvas canvas = new Canvas(shell, SWT.NONE);
+		canvas.setBounds(10, 0, 140, 124);
 		
-		List list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 10, 161, 148);
+		StyledText styledText = new StyledText(shell, SWT.BORDER);
+		styledText.setBounds(230, 48, 69, 19);
 		
-		Button btnNewButton = new Button(shell, SWT.NONE);
-		btnNewButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseDoubleClick(MouseEvent e) {
-				
-			}
-		});
-		btnNewButton.setBounds(187, 10, 75, 25);
-		btnNewButton.setText("New Button");
+		CCombo combo = new CCombo(shell, SWT.BORDER);
+		combo.setBounds(326, 67, 31, 21);
 		
-		DateTime dateTime = new DateTime(shell, SWT.BORDER);
-		dateTime.setBounds(205, 88, 80, 24);
-		
-		table = new Table(shell, SWT.BORDER | SWT.FULL_SELECTION);
-		table.setBounds(200, 135, 180, 116);
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-		
-		text = new Text(shell, SWT.BORDER);
-		text.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent e) {
-				e.
-			}
-		});
-		text.setBounds(10, 164, 161, 87);
+		Label lblPe = new Label(shell, SWT.NONE);
+		lblPe.setBounds(240, 73, 55, 15);
+		lblPe.setText("P\u0142e\u0107");
 
 	}
+	
 }
